@@ -1,0 +1,28 @@
+MeowTOrrent — standalone local setup
+
+Requirements: Node.js 22.13+ and Python 3.11, 3.12 or 3.13.
+In the project folder:
+  npm install
+  npm run local
+
+Open http://localhost:5173. The interface connects automatically.
+The launcher installs the libtorrent library in a project-local Python environment
+on first use. No qBittorrent, external torrent client, account, or hosted service
+is needed. Internet access is required for installation and public torrent peers.
+
+Add a magnet link or .torrent file. Supports BitTorrent v1, v2, hybrid,
+and multi-file torrents through libtorrent 2.0. Availability depends on peers
+and trackers; no client can guarantee every torrent will download.
+
+Files: ~/Downloads/MeowTOrrent
+Library: ~/.meowtorrent/library.json
+Override folders with MEOW_DOWNLOADS and MEOW_STATE environment variables.
+Closing the tab does not stop downloads. Keep the launcher running; Ctrl+C stops
+both processes. Restarting restores the library and paused state and rechecks
+existing downloaded pieces. Removing a torrent retains its downloaded files.
+
+The engine listens on loopback only and accepts this workspace's browser origin.
+The interface retrieves a session token automatically. Do not expose port 8788
+or change the allowed origin to an untrusted website.
+
+This is a local web application, not yet a packaged desktop installer.
